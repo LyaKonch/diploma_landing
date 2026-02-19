@@ -1,0 +1,43 @@
+import FeatureCard from './FeatureCard';
+
+const FeaturesList = () => {
+  const features = [
+    { 
+      id: 1, 
+      title: 'Secure Filesystem Access', 
+      desc: 'Читання, запис, видалення та пошук файлів з контролем прав.',
+      icon: '🔒'
+    },
+    { 
+      id: 2, 
+      title: 'System Monitoring', 
+      desc: 'Моніторинг CPU, RAM та використання дискового простору в реальному часі.',
+      icon: '📊'
+    },
+    { 
+      id: 3, 
+      title: 'Flexible Deployment', 
+      desc: 'Підтримка stdio, http та sse транспортів.',
+      icon: '🚀'
+    },
+  ];
+
+  return (
+    <section id="features" className="features" aria-labelledby="features-title">
+      <div className="container">
+        <h2 id="features-title" className="features__title text-center mb-8">Основні можливості (Goals)</h2>
+        <div className="features__grid">
+          {features.map((feature) => (
+            <FeatureCard 
+              key={feature.id} 
+              title={feature.title} 
+              description={feature.desc}
+              icon={feature.icon}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+export default FeaturesList;

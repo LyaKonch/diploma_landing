@@ -6,19 +6,29 @@ const FeaturesList = () => {
       id: 1, 
       title: 'Secure Filesystem Access', 
       desc: 'Читання, запис, видалення та пошук файлів з контролем прав.',
-      icon: '🔒'
+      icon: '🔒',
+      status: 'done'
     },
     { 
       id: 2, 
       title: 'System Monitoring', 
       desc: 'Моніторинг CPU, RAM та використання дискового простору в реальному часі.',
-      icon: '📊'
+      icon: '📊',
+      status: 'done'
     },
     { 
       id: 3, 
       title: 'Flexible Deployment', 
       desc: 'Підтримка stdio, http та sse транспортів.',
-      icon: '🚀'
+      icon: '🚀',
+      status: 'done'
+    },
+    { 
+      id: 4, 
+      title: 'Security Analysis', 
+      desc: 'Сканування директорій на вразливості та великі файли за допомогою ШІ.', 
+      icon: '🔍',
+      status: 'planned'
     },
   ];
 
@@ -33,6 +43,7 @@ const FeaturesList = () => {
               title={feature.title} 
               description={feature.desc}
               icon={feature.icon}
+              status={feature.status}
             />
           ))}
         </div>

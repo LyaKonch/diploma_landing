@@ -1,4 +1,4 @@
-const Hero = () => {
+const Hero = ({ subtitle }) => {
   return (
     <section className="hero">
       <div className="container text-center">
@@ -6,8 +6,7 @@ const Hero = () => {
           <h1 className="hero__title">Розробка MCP сервера для моніторингу та управління інфраструктурою</h1>
           <h2 className="hero__subtitle">Development of a MCP Server for Infrastructure Management and Monitoring</h2>
           <p className="hero__description">
-            Модульний та безпечний сервер для управління доступом до файлової системи, 
-            аналізу безпеки та моніторингу системних ресурсів.
+            {subtitle}
           </p>
           <div className="hero__cta flex gap-4 justify-center mt-8">
             <button className="btn btn-primary">Дізнатися більше</button>

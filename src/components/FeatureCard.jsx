@@ -1,9 +1,11 @@
-const FeatureCard = ({ title, description, icon, status }) => {
+const FeatureCard = ({ id, title, description, icon, status, onToggleStatus }) => {
   const getBadgeText = (status) => {
     if (status === 'done') return '✅ Реалізовано';
     if (status === 'planned') return '⏳ В планах';
     return '🔄 Активно';
   };
+
+  const isDone = status === 'done';
 
   return (
     <article className="card feature-card animate-fade" data-status={status}>
@@ -17,6 +19,14 @@ const FeatureCard = ({ title, description, icon, status }) => {
       </div>
       <h3 className="feature-card__title">{title}</h3>
       <p className="feature-card__description">{description}</p>
+      <label className="feature-card__toggle">
+        <input
+          type="checkbox"
+          checked={isDone}
+          onChange={() => onToggleStatus(id)}
+        />
+        <span>{isDone ? 'Позначено як виконано' : 'Позначити як виконано'}</span>
+      </label>
     </article>
   );
 };

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
@@ -10,7 +11,7 @@ function App() {
     subtitle: 'Розробка MCP сервера для моніторингу та управління інфраструктурою',
   };
 
-  const features = [
+  const [features, setFeatures] = useState([
     { 
       id: 1, 
       title: 'Secure Filesystem Access', 
@@ -53,7 +54,24 @@ function App() {
       icon: '🔍',
       status: 'planned'
     },
-  ];
+  ]);
+
+  const completedFeaturesCount = features.filter((feature) => feature.status === 'done').length;
+
+  const handleToggleFeatureStatus = (featureId) => {
+    setFeatures((previousFeatures) =>
+      previousFeatures.map((feature) => {
+        if (feature.id !== featureId) {
+          return feature;
+        }
+
+        return {
+          ...feature,
+          status: feature.status === 'done' ? 'planned' : 'done',
+        };
+      })
+    );
+  };
 
   const actuality = {
     title: 'Актуальність теми',
@@ -95,10 +113,15 @@ function App() {
 
   return (
     <div className="app">
-      <Header projectTitle={projectData.title} />
+      <Header
+        projectTitle={projectData.title}
+        completedFeaturesCount={completedFeaturesCount}
+        totalFeaturesCount={features.length}
+      />
       <Main 
         subtitle={projectData.subtitle}
         features={features}
+        onToggleFeatureStatus={handleToggleFeatureStatus}
         actuality={actuality}
         goals={goals}
         methodology={methodology}

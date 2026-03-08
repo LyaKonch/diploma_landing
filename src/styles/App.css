@@ -351,7 +351,22 @@ a:focus-visible {
 .header__logo-section {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
+}
+
+.header__counter {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  background: rgba(59, 130, 246, 0.14);
+  color: var(--primary-light);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
 .header__logo {
@@ -610,6 +625,28 @@ a:focus-visible {
   line-height: 1.6;
   margin: 0;
   text-align: left;
+}
+
+.feature-card__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.feature-card__toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.feature-card[data-status="done"] .feature-card__title {
+  color: #86efac;
 }
 
 /* Footer Styles */
@@ -1013,6 +1050,16 @@ a:focus-visible {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .header__counter {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .header__nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
   .actuality,
   .goals,
   .methodology,
@@ -1037,6 +1084,19 @@ a:focus-visible {
 }
 
 @media (max-width: 640px) {
+  .header {
+    padding: 14px 16px;
+  }
+
+  .header__logo-section {
+    gap: 8px;
+  }
+
+  .header__counter {
+    width: 100%;
+    justify-content: center;
+  }
+
   .results__grid {
     grid-template-columns: 1fr;
   }

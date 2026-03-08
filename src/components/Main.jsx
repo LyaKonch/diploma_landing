@@ -6,11 +6,11 @@ import MethodologySection from './MethodologySection';
 import ResultsSection from './ResultsSection';
 import ContactsSection from './ContactsSection';
 
-function Main({ subtitle, features, actuality, goals, methodology, results, contacts }) {
+function Main({ subtitle, features, onToggleFeatureStatus, actuality, goals, methodology, results, contacts }) {
   return (
     <main className="main">
       <Hero subtitle={subtitle} />
-      <FeaturesList features={features} />
+      <FeaturesList features={features} onToggleFeatureStatus={onToggleFeatureStatus} />
       <ActualitySection actuality={actuality} />
       <GoalsSection goals={goals} />
       <MethodologySection methodology={methodology} />

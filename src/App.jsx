@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
@@ -11,50 +11,57 @@ function App() {
     subtitle: 'Розробка MCP сервера для моніторингу та управління інфраструктурою',
   };
 
-  const [features, setFeatures] = useState([
-    { 
-      id: 1, 
-      title: 'Secure Filesystem Access', 
-      desc: 'Читання, запис, видалення та пошук файлів з контролем прав.',
-      icon: '🔒',
-      status: 'done'
-    },
-    { 
-      id: 2, 
-      title: 'System Monitoring', 
-      desc: 'Моніторинг CPU, RAM та використання дискового простору в реальному часі.',
-      icon: '📊',
-      status: 'done'
-    },
-    { 
-      id: 3, 
-      title: 'Flexible Deployment', 
-      desc: 'Підтримка stdio, http та sse транспортів.',
-      icon: '🚀',
-      status: 'done'
-    },
-    { 
-      id: 4, 
-      title: 'Server Lifecycle Management', 
-      desc: 'Безпечні інтерфейси запуску, зупинки та перезавантаження сервера.',
-      icon: '⚙️',
-      status: 'planned'
-    },
-    { 
-      id: 5, 
-      title: 'Authentication & Authorization', 
-      desc: 'Механізми аутентифікації та авторизації з контролем доступу за ролями.',
-      icon: '🔐',
-      status: 'planned'
-    },
-    { 
-      id: 6, 
-      title: 'Security Analysis', 
-      desc: 'Сканування директорій на вразливості та великі файли за допомогою ШІ.', 
-      icon: '🔍',
-      status: 'planned'
-    },
-  ]);
+  const [features, setFeatures] = useState(() => {
+    const stored = localStorage.getItem('diploma-features-data');
+    return stored ? JSON.parse(stored) : [
+      { 
+        id: 1, 
+        title: 'Secure Filesystem Access', 
+        desc: 'Читання, запис, видалення та пошук файлів з контролем прав.',
+        icon: '🔒',
+        status: 'done'
+      },
+      { 
+        id: 2, 
+        title: 'System Monitoring', 
+        desc: 'Моніторинг CPU, RAM та використання дискового простору в реальному часі.',
+        icon: '📊',
+        status: 'done'
+      },
+      { 
+        id: 3, 
+        title: 'Flexible Deployment', 
+        desc: 'Підтримка stdio, http та sse транспортів.',
+        icon: '🚀',
+        status: 'done'
+      },
+      { 
+        id: 4, 
+        title: 'Server Lifecycle Management', 
+        desc: 'Безпечні інтерфейси запуску, зупинки та перезавантаження сервера.',
+        icon: '⚙️',
+        status: 'planned'
+      },
+      { 
+        id: 5, 
+        title: 'Authentication & Authorization', 
+        desc: 'Механізми аутентифікації та авторизації з контролем доступу за ролями.',
+        icon: '🔐',
+        status: 'planned'
+      },
+      { 
+        id: 6, 
+        title: 'Security Analysis', 
+        desc: 'Сканування директорій на вразливості та великі файли за допомогою ШІ.', 
+        icon: '🔍',
+        status: 'planned'
+      },
+    ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('diploma-features-data', JSON.stringify(features));
+  }, [features]);
 
   const [filterMode, setFilterMode] = useState('all');
 

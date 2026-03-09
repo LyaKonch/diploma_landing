@@ -56,6 +56,8 @@ function App() {
     },
   ]);
 
+  const [filterMode, setFilterMode] = useState('all');
+
   const completedFeaturesCount = features.filter((feature) => feature.status === 'done').length;
 
   const handleToggleFeatureStatus = (featureId) => {
@@ -72,6 +74,18 @@ function App() {
       })
     );
   };
+
+  const visibleFeatures = features.filter((feature) => {
+    if (filterMode === 'completed') {
+      return feature.status === 'done';
+    }
+
+    if (filterMode === 'active') {
+      return feature.status !== 'done';
+    }
+
+    return true;
+  });
 
   const actuality = {
     title: 'Актуальність теми',
@@ -120,7 +134,9 @@ function App() {
       />
       <Main 
         subtitle={projectData.subtitle}
-        features={features}
+        features={visibleFeatures}
+        filterMode={filterMode}
+        onFilterModeChange={setFilterMode}
         onToggleFeatureStatus={handleToggleFeatureStatus}
         actuality={actuality}
         goals={goals}

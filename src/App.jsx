@@ -75,6 +75,10 @@ function App() {
     );
   };
 
+  const handleAddFeature = (newFeature) => {
+    setFeatures((prev) => [...prev, newFeature]);
+  };
+
   const visibleFeatures = features.filter((feature) => {
     if (filterMode === 'completed') {
       return feature.status === 'done';
@@ -138,6 +142,7 @@ function App() {
         filterMode={filterMode}
         onFilterModeChange={setFilterMode}
         onToggleFeatureStatus={handleToggleFeatureStatus}
+        onAddFeature={handleAddFeature}
         actuality={actuality}
         goals={goals}
         methodology={methodology}

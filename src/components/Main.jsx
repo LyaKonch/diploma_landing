@@ -1,4 +1,5 @@
 import Hero from './Hero';
+import FeatureForm from './FeatureForm';
 import FeaturesList from './FeaturesList';
 import ActualitySection from './ActualitySection';
 import GoalsSection from './GoalsSection';
@@ -12,6 +13,7 @@ function Main({
   filterMode,
   onFilterModeChange,
   onToggleFeatureStatus,
+  onAddFeature,
   actuality,
   goals,
   methodology,
@@ -27,6 +29,7 @@ function Main({
   return (
     <main className="main">
       <Hero subtitle={subtitle} />
+      <FeatureForm onAddFeature={onAddFeature} />
       <section className="feature-filters" aria-label="Фільтри можливостей">
         <div className="container">
           <div className="feature-filters__group" role="group" aria-label="Режим відображення">

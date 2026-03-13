@@ -687,6 +687,110 @@ a:focus-visible {
   font-size: 16px;
 }
 
+/* Infrastructure Nodes Section */
+.nodes {
+  padding: 40px 24px 60px;
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.03) 0%,
+    transparent 100%
+  );
+}
+
+.nodes__head {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.nodes__title {
+  font-size: clamp(24px, 3.5vw, 36px);
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.nodes__description {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+}
+
+.nodes__state {
+  max-width: 760px;
+  margin: 0 auto 16px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--surface);
+  color: var(--text-primary);
+  text-align: center;
+  font-weight: 600;
+}
+
+.nodes__state--error {
+  border-color: rgba(239, 68, 68, 0.45);
+  background: rgba(239, 68, 68, 0.12);
+  color: #fecaca;
+}
+
+.nodes__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.nodes-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(59, 130, 246, 0.04) 100%);
+  padding: 20px;
+  transition: var(--transition);
+}
+
+.nodes-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.nodes-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.nodes-card__title {
+  margin: 0;
+  font-size: 18px;
+}
+
+.nodes-card__status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.14);
+  color: #86efac;
+}
+
+.nodes-card__line {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.nodes-card__line:last-child {
+  margin-bottom: 0;
+}
+
 /* Feature Card Styles */
 .feature-card {
   display: flex;

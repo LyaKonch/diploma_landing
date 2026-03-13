@@ -1,6 +1,7 @@
 import Hero from './Hero';
 import FeatureForm from './FeatureForm';
 import FeaturesList from './FeaturesList';
+import InfrastructureNodes from './InfrastructureNodes';
 import ActualitySection from './ActualitySection';
 import GoalsSection from './GoalsSection';
 import MethodologySection from './MethodologySection';
@@ -47,6 +48,7 @@ function Main({
         </div>
       </section>
       <FeaturesList features={features} onToggleFeatureStatus={onToggleFeatureStatus} />
+      <InfrastructureNodes />
       <ActualitySection actuality={actuality} />
       <GoalsSection goals={goals} />
       <MethodologySection methodology={methodology} />

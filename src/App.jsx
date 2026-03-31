@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router';
 import Header from './components/Header';
-import Main from './components/Main';
 import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import FeaturesPage from './pages/FeaturesPage';
+import AboutPage from './pages/AboutPage';
+import FeatureDetailsPage from './pages/FeatureDetailsPage';
+import NotFoundPage from './pages/NotFoundPage';
 import './styles/App.css'; 
 
 function App() {
@@ -143,19 +148,35 @@ function App() {
         completedFeaturesCount={completedFeaturesCount}
         totalFeaturesCount={features.length}
       />
-      <Main 
-        subtitle={projectData.subtitle}
-        features={visibleFeatures}
-        filterMode={filterMode}
-        onFilterModeChange={setFilterMode}
-        onToggleFeatureStatus={handleToggleFeatureStatus}
-        onAddFeature={handleAddFeature}
-        actuality={actuality}
-        goals={goals}
-        methodology={methodology}
-        results={results}
-        contacts={contacts}
-      />
+      <Routes>
+        <Route path="/" element={<HomePage subtitle={projectData.subtitle} />} />
+        <Route
+          path="/features"
+          element={(
+            <FeaturesPage
+              features={visibleFeatures}
+              filterMode={filterMode}
+              onFilterModeChange={setFilterMode}
+              onToggleFeatureStatus={handleToggleFeatureStatus}
+              onAddFeature={handleAddFeature}
+            />
+          )}
+        />
+        <Route
+          path="/about"
+          element={(
+            <AboutPage
+              actuality={actuality}
+              goals={goals}
+              methodology={methodology}
+              results={results}
+              contacts={contacts}
+            />
+          )}
+        />
+        <Route path="/feature/:id" element={<FeatureDetailsPage features={features} />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
       <Footer />
     </div>
   );

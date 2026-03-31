@@ -404,6 +404,38 @@ a:focus-visible {
   text-decoration: none;
 }
 
+.nav-link.active {
+  background: rgba(59, 130, 246, 0.2);
+  color: var(--primary-light);
+  border: 1px solid rgba(96, 165, 250, 0.45);
+}
+
+.home-shortcuts {
+  padding: 24px 0;
+}
+
+.feature-card__details-link {
+  display: inline-flex;
+  margin-top: 12px;
+  font-weight: 700;
+}
+
+.details-panel {
+  max-width: 760px;
+  margin-top: 20px;
+}
+
+.details-panel__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.details-panel__actions {
+  margin-top: 20px;
+}
+
 /* Hero Section */
 .hero {
   padding: 80px 24px 60px;

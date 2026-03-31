@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 const FeatureCard = ({ id, title, description, icon, status, onToggleStatus }) => {
   const getBadgeText = (status) => {
     if (status === 'done') return '✅ Реалізовано';
@@ -27,6 +29,9 @@ const FeatureCard = ({ id, title, description, icon, status, onToggleStatus }) =
         />
         <span>{isDone ? 'Позначено як виконано' : 'Позначити як виконано'}</span>
       </label>
+      <Link to={`/feature/${id}`} className="feature-card__details-link">
+        Детальніше →
+      </Link>
     </article>
   );
 };

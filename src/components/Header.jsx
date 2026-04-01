@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { Button } from './ui';
 
 const Header = ({ projectTitle, completedFeaturesCount, totalFeaturesCount }) => {
   const { theme, toggleTheme } = useTheme();
@@ -23,22 +24,22 @@ const Header = ({ projectTitle, completedFeaturesCount, totalFeaturesCount }) =>
             <NavLink to="/about" className="nav-link">{t('about')}</NavLink>
           </div>
           <div className="header__controls flex gap-2">
-            <button
-              type="button"
-              className="header__control-btn"
+            <Button
+              variant="secondary"
+              size="sm"
               onClick={toggleTheme}
               aria-label={theme === 'light' ? t('switchToDark') : t('switchToLight')}
             >
               {theme === 'light' ? `🌙 ${t('themeDark')}` : `☀️ ${t('themeLight')}`}
-            </button>
-            <button
-              type="button"
-              className="header__control-btn"
+            </Button>
+            <Button
+              variant="secondary"
+              size="sm"
               onClick={toggleLanguage}
               aria-label={t('language')}
             >
               {language === 'uk' ? 'EN' : 'UA'}
-            </button>
+            </Button>
           </div>
         </div>
       </nav>

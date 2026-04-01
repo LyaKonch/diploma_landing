@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { Button, Input } from './ui';
 
 function FeatureForm({ onAddFeature }) {
   const { t } = useLanguage();
@@ -51,8 +52,8 @@ function FeatureForm({ onAddFeature }) {
         <form onSubmit={handleSubmit} className="feature-form">
           <div className="feature-form__row">
             <div className="feature-form__field">
-              <label htmlFor="feature-title">{t('featureName')}</label>
-              <input
+              <Input
+                label={t('featureName')}
                 id="feature-title"
                 type="text"
                 placeholder="Наприклад: Real-time Logging"
@@ -63,8 +64,8 @@ function FeatureForm({ onAddFeature }) {
             </div>
 
             <div className="feature-form__field">
-              <label htmlFor="feature-desc">{t('featureDescription')}</label>
-              <input
+              <Input
+                label={t('featureDescription')}
                 id="feature-desc"
                 type="text"
                 placeholder="Короткий опис функціональності"
@@ -105,9 +106,9 @@ function FeatureForm({ onAddFeature }) {
               </select>
             </div>
 
-            <button type="submit" className="feature-form__button">
+            <Button type="submit" variant="primary">
               {t('addFeatureAction')}
-            </button>
+            </Button>
           </div>
         </form>
       </div>

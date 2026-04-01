@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 function FeatureForm({ onAddFeature }) {
+  const { t } = useLanguage();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [icon, setIcon] = useState('✨');
@@ -45,11 +47,11 @@ function FeatureForm({ onAddFeature }) {
   return (
     <section className="feature-form-section" aria-label="Додати нову можливість">
       <div className="container">
-        <h2 className="feature-form__title">Додати нову можливість проєкту</h2>
+        <h2 className="feature-form__title">{t('addFeatureTitle')}</h2>
         <form onSubmit={handleSubmit} className="feature-form">
           <div className="feature-form__row">
             <div className="feature-form__field">
-              <label htmlFor="feature-title">Назва можливості</label>
+              <label htmlFor="feature-title">{t('featureName')}</label>
               <input
                 id="feature-title"
                 type="text"
@@ -61,7 +63,7 @@ function FeatureForm({ onAddFeature }) {
             </div>
 
             <div className="feature-form__field">
-              <label htmlFor="feature-desc">Опис</label>
+              <label htmlFor="feature-desc">{t('featureDescription')}</label>
               <input
                 id="feature-desc"
                 type="text"
@@ -75,7 +77,7 @@ function FeatureForm({ onAddFeature }) {
 
           <div className="feature-form__row">
             <div className="feature-form__field">
-              <label htmlFor="feature-icon">Іконка</label>
+              <label htmlFor="feature-icon">{t('featureIcon')}</label>
               <select
                 id="feature-icon"
                 value={icon}
@@ -91,20 +93,20 @@ function FeatureForm({ onAddFeature }) {
             </div>
 
             <div className="feature-form__field">
-              <label htmlFor="feature-status">Статус</label>
+              <label htmlFor="feature-status">{t('featureStatus')}</label>
               <select
                 id="feature-status"
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
                 className="feature-form__select"
               >
-                <option value="planned">⏳ В планах</option>
-                <option value="done">✅ Реалізовано</option>
+                <option value="planned">{t('statusPlanned')}</option>
+                <option value="done">{t('statusDone')}</option>
               </select>
             </div>
 
             <button type="submit" className="feature-form__button">
-              Додати можливість
+              {t('addFeatureAction')}
             </button>
           </div>
         </form>

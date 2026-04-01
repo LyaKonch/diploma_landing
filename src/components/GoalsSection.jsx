@@ -1,8 +1,8 @@
-const GoalsSection = ({ goals }) => {
+const GoalsSection = ({ title, goals }) => {
   return (
     <section id="goals" className="goals">
       <div className="container">
-        <h2 className="goals__title text-center mb-8">Мета та завдання проекту</h2>
+        <h2 className="goals__title text-center mb-8">{title}</h2>
         <div className="goals__list">
           {goals.map((goal, index) => (
             <div key={index} className="goal-item">

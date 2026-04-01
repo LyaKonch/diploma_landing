@@ -1,5 +1,6 @@
 import FeatureForm from '../components/FeatureForm';
 import FeaturesList from '../components/FeaturesList';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function FeaturesPage({
   features,
@@ -8,10 +9,12 @@ export default function FeaturesPage({
   onToggleFeatureStatus,
   onAddFeature,
 }) {
+  const { t } = useLanguage();
+
   const filters = [
-    { id: 'all', label: 'Усі' },
-    { id: 'active', label: 'Активні' },
-    { id: 'completed', label: 'Виконані' },
+    { id: 'all', label: t('filterAll') },
+    { id: 'active', label: t('filterActive') },
+    { id: 'completed', label: t('filterCompleted') },
   ];
 
   return (

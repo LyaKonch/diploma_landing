@@ -12,16 +12,16 @@ const ActualitySection = ({ actuality }) => {
             <div className="actuality__highlight">
               <span className="highlight-badge">⚠️</span>
               <div>
-                <h3>Проблема</h3>
-                <p>Складні інструменти моніторингу мають крутий поріг входження, а базові утиліти надають тільки сирі дані. Діагностика вимагає глибоких знань ОС та часозатратного аналізу логів вручну.</p>
+                <h3>{actuality.problemTitle}</h3>
+                <p>{actuality.problemText}</p>
               </div>
             </div>
             
             <div className="actuality__highlight">
               <span className="highlight-badge">✨</span>
               <div>
-                <h3>Рішення</h3>
-                <p>MCP виступає як безпечна абстракція між LLM та ОС, дозволяючи користувачеві запитати природною мовою замість навчання  команд. Система автоматично викликає дозволені інструменти та предоставляє читабельні рекомендації.</p>
+                <h3>{actuality.solutionTitle}</h3>
+                <p>{actuality.solutionText}</p>
               </div>
             </div>
           </div>

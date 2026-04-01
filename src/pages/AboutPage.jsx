@@ -4,13 +4,22 @@ import MethodologySection from '../components/MethodologySection';
 import ResultsSection from '../components/ResultsSection';
 import ContactsSection from '../components/ContactsSection';
 
-export default function AboutPage({ actuality, goals, methodology, results, contacts }) {
+export default function AboutPage({
+  actuality,
+  goalsTitle,
+  goals,
+  methodology,
+  resultsTitle,
+  resultsSummary,
+  results,
+  contacts,
+}) {
   return (
     <main className="main">
       <ActualitySection actuality={actuality} />
-      <GoalsSection goals={goals} />
+      <GoalsSection title={goalsTitle} goals={goals} />
       <MethodologySection methodology={methodology} />
-      <ResultsSection results={results} />
+      <ResultsSection title={resultsTitle} summary={resultsSummary} results={results} />
       <ContactsSection contacts={contacts} />
     </main>
   );

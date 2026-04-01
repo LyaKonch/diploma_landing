@@ -1,10 +1,13 @@
 import { Link } from 'react-router';
+import { useLanguage } from '../context/LanguageContext';
 
 const FeatureCard = ({ id, title, description, icon, status, onToggleStatus }) => {
+  const { t, language } = useLanguage();
+
   const getBadgeText = (status) => {
-    if (status === 'done') return '✅ Реалізовано';
-    if (status === 'planned') return '⏳ В планах';
-    return '🔄 Активно';
+    if (status === 'done') return language === 'uk' ? '✅ Реалізовано' : '✅ Completed';
+    if (status === 'planned') return language === 'uk' ? '⏳ В планах' : '⏳ Planned';
+    return language === 'uk' ? '🔄 Активно' : '🔄 Active';
   };
 
   const isDone = status === 'done';
@@ -27,10 +30,10 @@ const FeatureCard = ({ id, title, description, icon, status, onToggleStatus }) =
           checked={isDone}
           onChange={() => onToggleStatus(id)}
         />
-        <span>{isDone ? 'Позначено як виконано' : 'Позначити як виконано'}</span>
+        <span>{isDone ? (language === 'uk' ? 'Позначено як виконано' : 'Marked as completed') : (language === 'uk' ? 'Позначити як виконано' : 'Mark as completed')}</span>
       </label>
       <Link to={`/feature/${id}`} className="feature-card__details-link">
-        Детальніше →
+        {t('details')} →
       </Link>
     </article>
   );
